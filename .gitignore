@@ -13,6 +13,7 @@ dist-ssr
 *.local
 *.zip
 website-project-complete.zip
+push-to-github.bat
 
 # Editor directories and files
 .vscode/*
