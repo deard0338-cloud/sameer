@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0FDF4"/>
+  <path d="M42 22H68L78 32V74C78 75.5 76.5 77 75 77H42C40.5 77 39 75.5 39 74V25C39 23.5 40.5 22 42 22Z" fill="#FFFFFF" stroke="#16A34A" stroke-width="2"/>
+  <path d="M68 22V32H78" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <line x1="46" y1="38" x2="64" y2="38" stroke="#15803D" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="46" x2="72" y2="46" stroke="#86EFAC" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="54" x2="68" y2="54" stroke="#86EFAC" stroke-width="2" stroke-linecap="round"/>
+  <!-- Certificate Ribbon / Stamp -->
+  <circle cx="68" cy="66" r="10" fill="#16A34A" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M64 66L67 69L72 63" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M63 76L65 83L68 80L71 83L73 76" fill="#15803D"/>
+</svg>

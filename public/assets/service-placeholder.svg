@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <!-- Soft background container -->
+  <rect width="120" height="100" rx="12" fill="#F0F5FA"/>
+  <rect x="1" y="1" width="118" height="98" rx="11" stroke="#D3E2F0" stroke-width="1.5"/>
+  
+  <!-- Subtle circular backdrop -->
+  <circle cx="60" cy="48" r="28" fill="#E1EDF8" />
+  
+  <!-- Document Base -->
+  <path d="M46 24H64L74 34V68C74 70.2 72.2 72 70 72H46C43.8 72 42 70.2 42 68V28C42 25.8 43.8 24 46 24Z" fill="#FFFFFF" stroke="#0066A6" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Folded Corner -->
+  <path d="M64 24V34H74" fill="#EAF2F9" stroke="#0066A6" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Content Lines -->
+  <line x1="48" y1="42" x2="68" y2="42" stroke="#0A3875" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="48" y1="50" x2="64" y2="50" stroke="#0066A6" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="48" y1="58" x2="68" y2="58" stroke="#0066A6" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Verified Badge / Seal -->
+  <circle cx="68" cy="65" r="9" fill="#0066A6" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M64.5 65L67 67.5L71.5 63" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

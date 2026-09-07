@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <!-- Symbol / Icon -->
+  <g transform="translate(4, 4)">
+    <!-- Shield / Paper Crest -->
+    <rect x="2" y="2" width="52" height="52" rx="12" fill="#005B96"/>
+    <!-- Folded paper / document corner -->
+    <path d="M16 14H34L42 22V42C42 43.1 41.1 44 40 44H16C14.9 44 14 43.1 14 42V16C14 14.9 14.9 14 16 14Z" fill="#FFFFFF"/>
+    <path d="M34 14V22H42L34 14Z" fill="#EAF4FB"/>
+    <!-- Digital Print / Xerox laser & check beam -->
+    <rect x="18" y="26" width="18" height="2.5" rx="1.25" fill="#0066A6"/>
+    <rect x="18" y="31" width="13" height="2.5" rx="1.25" fill="#FF9933"/>
+    <rect x="18" y="36" width="16" height="2.5" rx="1.25" fill="#138808"/>
+    <!-- Outer accent dots representing digital connection -->
+    <circle cx="46" cy="46" r="3.5" fill="#FF9933"/>
+  </g>
+  
+  <!-- Typography -->
+  <!-- "Sameer Xerox" -->
+  <text x="72" y="31" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#005B96" letter-spacing="-0.5">
+    Sameer <tspan fill="#111111">Xerox</tspan>
+  </text>
+  <!-- "Digital Services & CSC Center" -->
+  <text x="72" y="49" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#555555" letter-spacing="0.3">
+    DIGITAL SERVICES &amp; CSC CENTER
+  </text>
+</svg>

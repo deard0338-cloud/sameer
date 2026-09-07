@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F1F5F9"/>
+  <!-- Photocopier Machine Body -->
+  <rect x="28" y="44" width="64" height="34" rx="4" fill="#334155" stroke="#1E293B" stroke-width="1.5"/>
+  <rect x="36" y="52" width="28" height="18" rx="2" fill="#0F172A"/>
+  <!-- Scanner top lid & glass -->
+  <path d="M30 44L40 30H88L84 44H30Z" fill="#64748B"/>
+  <line x1="38" y1="44" x2="80" y2="44" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Paper feeding out -->
+  <rect x="68" y="48" width="20" height="26" rx="2" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1"/>
+  <line x1="72" y1="54" x2="84" y2="54" stroke="#0284C7" stroke-width="1"/>
+  <line x1="72" y1="58" x2="82" y2="58" stroke="#94A3B8" stroke-width="1"/>
+</svg>

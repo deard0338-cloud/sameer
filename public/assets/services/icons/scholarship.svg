@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FDF4FF"/>
+  <!-- Graduation Mortarboard Cap -->
+  <path d="M60 26L88 38L60 50L32 38L60 26Z" fill="#7E22CE"/>
+  <path d="M44 45V58C44 64 52 68 60 68C68 68 76 64 76 58V45L60 53L44 45Z" fill="#6B21A8"/>
+  <!-- Tassel -->
+  <path d="M84 40V56M84 56L82 60H86L84 56Z" stroke="#F59E0B" stroke-width="2" fill="#F59E0B"/>
+  <!-- Diploma scroll -->
+  <rect x="42" y="70" width="36" height="8" rx="4" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/>
+  <rect x="56" y="70" width="8" height="8" fill="#F59E0B"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft circular backdrop -->
+  <circle cx="80" cy="70" r="55" fill="#EAF4FB" opacity="0.8"/>
+  <!-- Gujarat Heritage Mandir / Somnath Shikhara Line Art -->
+  <g stroke="#0066A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Base plinth -->
+    <path d="M25 120H135" />
+    <path d="M35 114H125" />
+    <path d="M42 108H118" />
+    <!-- Main Mandapa Columns -->
+    <rect x="45" y="80" width="12" height="28" />
+    <rect x="65" y="80" width="10" height="28" />
+    <rect x="85" y="80" width="10" height="28" />
+    <rect x="103" y="80" width="12" height="28" />
+    <line x1="42" y1="80" x2="118" y2="80" />
+    <!-- Tiered Roof layers -->
+    <path d="M48 80L56 65H104L112 80" />
+    <line x1="52" y1="72" x2="108" y2="72" />
+    <!-- Central Tower (Shikhara) -->
+    <path d="M60 65C62 48 70 30 80 20C90 30 98 48 100 65" />
+    <!-- Shikhara ribs/urushringas -->
+    <path d="M68 65C70 52 74 38 80 30C86 38 90 52 92 65" />
+    <line x1="64" y1="52" x2="96" y2="52" />
+    <line x1="70" y1="40" x2="90" y2="40" />
+    <!-- Amalaka and Kalasha (Top) -->
+    <ellipse cx="80" cy="18" rx="8" ry="4" fill="#EAF4FB" />
+    <path d="M80 14V8" />
+    <circle cx="80" cy="7" r="2" fill="#0066A6" />
+    <!-- Flag / Dhwaja -->
+    <path d="M80 8L92 12L80 16" fill="#0066A6"/>
+  </g>
+</svg>

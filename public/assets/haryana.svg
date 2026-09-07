@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft circular backdrop -->
+  <circle cx="80" cy="70" r="55" fill="#EAF4FB" opacity="0.8"/>
+  <!-- Haryana Monument Line Art (Brahma Sarovar Pavilion & Pillars) -->
+  <g stroke="#0066A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Plinth -->
+    <path d="M25 120H135" />
+    <path d="M32 114H128" />
+    <!-- Pillars and Arches -->
+    <rect x="42" y="70" width="10" height="44" />
+    <rect x="62" y="70" width="10" height="44" />
+    <rect x="88" y="70" width="10" height="44" />
+    <rect x="108" y="70" width="10" height="44" />
+    <!-- Arches -->
+    <path d="M52 82C52 75 57 70 62 70" />
+    <path d="M72 82C72 72 78 68 80 68C82 68 88 72 88 82" />
+    <path d="M98 70C103 70 108 75 108 82" />
+    <!-- Chhatri / Dome Roof -->
+    <line x1="36" y1="70" x2="124" y2="70" />
+    <!-- Center Dome -->
+    <path d="M66 70C66 48 72 40 80 40C88 40 94 48 94 70" />
+    <path d="M72 70C72 54 75 48 80 48C85 48 88 54 88 70" />
+    <!-- Side Chhatris -->
+    <path d="M38 70C38 58 44 54 50 54C56 54 62 58 62 70" />
+    <path d="M98 70C98 58 104 54 110 54C116 54 122 58 122 70" />
+    <!-- Finials -->
+    <path d="M80 40V30" />
+    <circle cx="80" cy="28" r="2.5" fill="#0066A6" />
+    <path d="M50 54V46" />
+    <path d="M110 54V46" />
+  </g>
+</svg>

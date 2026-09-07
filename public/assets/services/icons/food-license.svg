@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0FDF4"/>
+  <!-- Cloche / Plate Cover -->
+  <path d="M34 54C34 38 46 28 60 28C74 28 86 38 86 54H34Z" fill="#16A34A"/>
+  <circle cx="60" cy="26" r="4" fill="#15803D"/>
+  <rect x="30" y="54" width="60" height="6" rx="2" fill="#15803D"/>
+  <!-- Fork & Spoon and Tick -->
+  <circle cx="60" cy="66" r="11" fill="#22C55E" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M56 66L59 69L65 63" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

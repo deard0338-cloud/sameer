@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F8FAFC"/>
+  <!-- Official Paper Document -->
+  <rect x="38" y="22" width="44" height="58" rx="3" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+  <rect x="42" y="26" width="36" height="8" fill="#E2E8F0"/>
+  <line x1="44" y1="40" x2="76" y2="40" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="44" y1="46" x2="72" y2="46" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="44" y1="52" x2="76" y2="52" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Quill / Pen -->
+  <path d="M72 74L79 50C80 46 84 45 86 48C88 51 86 54 83 56L75 75L70 76L72 74Z" fill="#0284C7"/>
+</svg>

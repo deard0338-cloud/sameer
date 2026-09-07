@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0F9FF"/>
+  <!-- Document Sheet -->
+  <rect x="40" y="32" width="40" height="50" rx="4" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+  <line x1="48" y1="42" x2="72" y2="42" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round"/>
+  <line x1="48" y1="50" x2="68" y2="50" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round"/>
+  <!-- Cloud & Upload Arrow -->
+  <path d="M42 36C42 26 52 24 60 28C66 22 76 26 78 34C84 34 88 38 88 44C88 50 82 52 76 52H44C38 52 34 46 36 40C38 36 40 36 42 36Z" fill="#0284C7"/>
+  <path d="M60 48V34M55 39L60 34L65 39" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

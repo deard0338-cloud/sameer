@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft circular backdrop -->
+  <circle cx="80" cy="70" r="55" fill="#EAF4FB" opacity="0.8"/>
+  <!-- India Gate Line Art -->
+  <g stroke="#0066A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Base -->
+    <path d="M25 120H135" />
+    <path d="M32 114H128" />
+    <path d="M38 108H122" />
+    <!-- Pillars -->
+    <rect x="42" y="55" width="22" height="53" />
+    <rect x="96" y="55" width="22" height="53" />
+    <!-- Pillar Details -->
+    <line x1="42" y1="75" x2="64" y2="75" />
+    <line x1="96" y1="75" x2="118" y2="75" />
+    <line x1="42" y1="95" x2="64" y2="95" />
+    <line x1="96" y1="95" x2="118" y2="95" />
+    <!-- Central Arch -->
+    <path d="M64 108V68C64 59.16 71.16 52 80 52C88.84 52 96 59.16 96 68V108" />
+    <!-- Arch detail ring -->
+    <path d="M68 68C68 61.37 73.37 56 80 56C86.63 56 92 61.37 92 68" />
+    <!-- Upper cornice / entablature -->
+    <rect x="36" y="42" width="88" height="13" />
+    <!-- Cornice brackets/dentils -->
+    <line x1="48" y1="42" x2="48" y2="55" />
+    <line x1="60" y1="42" x2="60" y2="55" />
+    <line x1="80" y1="42" x2="80" y2="55" />
+    <line x1="100" y1="42" x2="100" y2="55" />
+    <line x1="112" y1="42" x2="112" y2="55" />
+    <!-- Top Attic Level -->
+    <rect x="44" y="28" width="72" height="14" />
+    <path d="M48 28L52 20H108L112 28" />
+    <line x1="62" y1="20" x2="62" y2="28" />
+    <line x1="80" y1="20" x2="80" y2="28" />
+    <line x1="98" y1="20" x2="98" y2="28" />
+    <!-- Flame / Dome finial -->
+    <path d="M76 20C76 17 80 14 80 14C80 14 84 17 84 20" />
+  </g>
+</svg>

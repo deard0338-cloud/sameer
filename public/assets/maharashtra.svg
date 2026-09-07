@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+  <!-- Soft circular backdrop -->
+  <circle cx="80" cy="70" r="55" fill="#EAF4FB" opacity="0.8"/>
+  <!-- Gateway of India Line Art -->
+  <g stroke="#0066A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Plinth -->
+    <path d="M22 120H138" />
+    <path d="M28 114H132" />
+    <!-- Turrets / Flanking Bastions -->
+    <rect x="32" y="50" width="18" height="64" />
+    <rect x="110" y="50" width="18" height="64" />
+    <!-- Center Piers -->
+    <rect x="58" y="60" width="12" height="54" />
+    <rect x="90" y="60" width="12" height="54" />
+    <!-- Side arches -->
+    <path d="M50 78C50 72 54 68 58 68" />
+    <path d="M102 68C106 68 110 72 110 78" />
+    <!-- Grand Central Arch -->
+    <path d="M70 114V72C70 64 74 58 80 58C86 58 90 64 90 72V114" />
+    <path d="M74 72C74 67 76 63 80 63C84 63 86 67 86 72" />
+    <!-- Cornice band -->
+    <line x1="30" y1="50" x2="130" y2="50" />
+    <line x1="28" y1="44" x2="132" y2="44" />
+    <!-- Turret Domes -->
+    <path d="M32 44C32 34 41 30 41 30C41 30 50 34 50 44" />
+    <path d="M110 44C110 34 119 30 119 30C119 30 128 34 128 44" />
+    <!-- Central Dome & Jali Screen Level -->
+    <rect x="54" y="34" width="52" height="10" />
+    <path d="M62 34C62 20 70 16 80 16C90 20 98 34 98 34" />
+    <!-- Finial -->
+    <line x1="80" y1="16" x2="80" y2="10" />
+    <circle cx="80" cy="9" r="2" fill="#0066A6" />
+    <line x1="41" y1="30" x2="41" y2="24" />
+    <line x1="119" y1="30" x2="119" y2="24" />
+  </g>
+</svg>

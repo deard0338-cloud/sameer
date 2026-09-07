@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0F9FF"/>
+  <!-- Car Silhouette -->
+  <path d="M34 54L42 40H78L86 54V66H82V62H38V66H34V54Z" fill="#0284C7"/>
+  <path d="M44 43L38 52H82L76 43H44Z" fill="#E0F2FE"/>
+  <!-- Wheels -->
+  <circle cx="44" cy="62" r="5" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5"/>
+  <circle cx="76" cy="62" r="5" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5"/>
+  <!-- Protective umbrella / shield overhead -->
+  <path d="M60 22C48 22 42 27 42 32H78C78 27 72 22 60 22Z" fill="#38BDF8"/>
+  <path d="M60 32V36" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+</svg>

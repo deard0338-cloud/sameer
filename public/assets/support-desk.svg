@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background soft cloud/blob -->
+  <path d="M60 140C60 60 140 30 220 40C300 50 360 100 370 170C380 240 300 270 210 270C120 270 60 220 60 140Z" fill="#EAF4FB" opacity="0.9"/>
+  <ellipse cx="220" cy="265" rx="140" ry="12" fill="#D2E8F7"/>
+
+  <!-- Speech bubble "8 HRS / 7 DAYS" -->
+  <rect x="20" y="70" width="110" height="36" rx="18" fill="#005B96"/>
+  <text x="75" y="93" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">8 HRS / 7 DAYS</text>
+
+  <!-- Speech bubble "THANKS!" on right -->
+  <g transform="translate(280, 50)">
+    <rect width="105" height="70" rx="14" fill="#D2E8F7"/>
+    <path d="M20 70L10 82V70H20Z" fill="#D2E8F7"/>
+    <text x="14" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#005B96">HERE TO HELP!</text>
+    <line x1="14" y1="38" x2="90" y2="38" stroke="#005B96" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="14" y1="47" x2="75" y2="47" stroke="#005B96" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="14" y1="56" x2="60" y2="56" stroke="#005B96" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Desk & Plants -->
+  <rect x="100" y="220" width="220" height="12" rx="4" fill="#BACFE0"/>
+  <path d="M115 220C110 200 130 185 130 185C130 185 145 200 140 220" fill="#9CC5E6"/>
+  <path d="M125 220C120 205 135 195 135 195C135 195 145 205 140 220" fill="#75AADB"/>
+
+  <!-- Support Person -->
+  <!-- Torso / Jacket -->
+  <path d="M170 230L175 160C175 148 185 138 200 136H240C255 138 265 148 265 160L270 230H170Z" fill="#FF9933"/>
+  <!-- Inner shirt -->
+  <path d="M205 136H235V170L220 180L205 170V136Z" fill="#005B96"/>
+  <!-- Neck -->
+  <rect x="212" y="120" width="16" height="20" fill="#FADCB8"/>
+  <!-- Head -->
+  <ellipse cx="220" cy="98" rx="20" ry="24" fill="#FADCB8"/>
+  <!-- Hair -->
+  <path d="M198 90C198 72 210 68 220 68C235 68 244 75 244 92C244 105 242 120 240 125C235 110 232 100 232 100C225 102 215 102 208 100C208 100 205 112 200 125C198 118 198 102 198 90Z" fill="#2E384D"/>
+  <!-- Face features -->
+  <circle cx="214" cy="94" r="2" fill="#2E384D"/>
+  <circle cx="226" cy="94" r="2" fill="#2E384D"/>
+  <path d="M217 104C218 107 222 107 223 104" stroke="#2E384D" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Headset -->
+  <path d="M196 95C194 80 205 66 220 66C235 66 246 80 244 95" stroke="#005B96" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <rect x="193" y="90" width="6" height="14" rx="3" fill="#005B96"/>
+  <rect x="241" y="90" width="6" height="14" rx="3" fill="#005B96"/>
+  <!-- Headset mic -->
+  <path d="M196 100C196 112 206 114 212 114" stroke="#005B96" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <circle cx="213" cy="114" r="2.5" fill="#005B96"/>
+
+  <!-- Laptop -->
+  <path d="M175 220L190 178H250L265 220H175Z" fill="#005B96"/>
+  <rect x="195" y="182" width="50" height="32" rx="2" fill="#FFFFFF"/>
+  <circle cx="220" cy="198" r="4" stroke="#005B96" stroke-width="1.5" fill="none"/>
+  <!-- Laptop base -->
+  <rect x="165" y="220" width="110" height="4" rx="2" fill="#2E384D"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#EFF6FF"/>
+  <!-- Shield Badge -->
+  <path d="M60 22C44 22 40 28 40 40C40 58 54 72 60 76C66 72 80 58 80 40C80 28 76 22 60 22Z" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2"/>
+  <path d="M60 26C47 26 44 31 44 41C44 55 55 67 60 70C65 67 76 55 76 41C76 31 73 26 60 26Z" fill="#2563EB"/>
+  <!-- Star & Checkmark -->
+  <path d="M60 33L62 38H67L63 41L65 46L60 43L55 46L57 41L53 38H58L60 33Z" fill="#FBBF24"/>
+  <path d="M53 53L58 58L68 48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

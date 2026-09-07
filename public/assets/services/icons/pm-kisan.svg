@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FEFCE8"/>
+  <circle cx="60" cy="50" r="28" fill="#EAB308" opacity="0.15"/>
+  <!-- Rising Sun -->
+  <circle cx="60" cy="46" r="14" fill="#F59E0B"/>
+  <!-- Green Rolling Fields -->
+  <path d="M34 68C42 58 54 58 64 62C72 65 80 62 86 68H34Z" fill="#15803D"/>
+  <path d="M46 72C56 64 68 64 78 68H46Z" fill="#16A34A"/>
+  <!-- Wheat Stalks -->
+  <path d="M60 62V34M60 36L55 31M60 40L65 35M60 44L55 39M60 48L65 43" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+</svg>

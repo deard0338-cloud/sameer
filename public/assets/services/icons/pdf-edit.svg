@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FEF2F2"/>
+  <path d="M40 22H64L74 32V72C74 73.5 72.5 75 71 75H40C38.5 75 37 73.5 37 72V25C37 23.5 38.5 22 40 22Z" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
+  <path d="M64 22V32H74" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+  <!-- Compression arrows facing each other -->
+  <circle cx="56" cy="52" r="14" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M48 52H64M52 48L48 52L52 56M60 48L64 52L60 56" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

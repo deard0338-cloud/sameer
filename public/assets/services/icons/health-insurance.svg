@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FEF2F2"/>
+  <!-- Health Shield -->
+  <path d="M60 22C45 22 41 28 41 40C41 58 55 71 60 75C65 71 79 58 79 40C79 28 75 22 60 22Z" fill="#DC2626"/>
+  <!-- White medical cross -->
+  <rect x="55" y="34" width="10" height="26" rx="2" fill="#FFFFFF"/>
+  <rect x="47" y="42" width="26" height="10" rx="2" fill="#FFFFFF"/>
+  <!-- Heart beat subtle pulse -->
+  <circle cx="75" cy="32" r="7" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+  <path d="M73 32L74 34L76 30L77 32" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

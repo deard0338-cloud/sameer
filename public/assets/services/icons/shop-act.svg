@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FAF5FF"/>
+  <!-- Storefront -->
+  <rect x="30" y="42" width="60" height="34" rx="3" fill="#FFFFFF" stroke="#7E22CE" stroke-width="2"/>
+  <rect x="52" y="54" width="16" height="22" rx="2" fill="#F3E8FF" stroke="#7E22CE" stroke-width="1.5"/>
+  <rect x="36" y="52" width="10" height="12" rx="1" fill="#E9D5FF"/>
+  <rect x="74" y="52" width="10" height="12" rx="1" fill="#E9D5FF"/>
+  <!-- Awning roof -->
+  <path d="M26 42L32 26H88L94 42H26Z" fill="#9333EA"/>
+  <path d="M38 26L36 42M52 26L52 42M68 26L68 42M82 26L84 42" stroke="#FFFFFF" stroke-width="2"/>
+  <!-- Verified Certificate Seal -->
+  <circle cx="82" cy="66" r="9" fill="#22C55E" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M79 66L81 68L85 64" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

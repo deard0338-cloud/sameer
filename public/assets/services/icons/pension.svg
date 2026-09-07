@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0FDF4"/>
+  <!-- Shield with Fingerprint / Life Symbol -->
+  <path d="M60 22C46 22 42 27 42 38C42 56 55 69 60 74C65 69 78 56 78 38C78 27 74 22 60 22Z" fill="#15803D"/>
+  <!-- Biometric concentric arcs -->
+  <path d="M54 48C54 44.5 56.5 42 60 42C63.5 42 66 44.5 66 48V54" stroke="#86EFAC" stroke-width="2" stroke-linecap="round"/>
+  <path d="M50 50C50 43 54.5 38 60 38C65.5 38 70 43 70 50V56" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M60 46V54" stroke="#86EFAC" stroke-width="2" stroke-linecap="round"/>
+  <!-- Verified check badge -->
+  <circle cx="76" cy="62" r="8" fill="#EAB308" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M73 62L75 64L79 60" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

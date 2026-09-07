@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Circular container with soft outline -->
+  <circle cx="40" cy="40" r="38" fill="#EAF4FB" stroke="#0066A6" stroke-width="2"/>
+  <clipPath id="avatar-clip">
+    <circle cx="40" cy="40" r="37"/>
+  </clipPath>
+  <g clip-path="url(#avatar-clip)">
+    <!-- Traditional Saree with red/gold border -->
+    <path d="M12 78C12 58 26 50 40 50C54 50 68 58 68 78H12Z" fill="#E02424"/>
+    <path d="M28 51L48 78H62L36 50Z" fill="#F59E0B"/>
+    <path d="M30 52L46 76" stroke="#FEF08A" stroke-width="2"/>
+    
+    <!-- Neck -->
+    <rect x="36" y="38" width="8" height="15" fill="#F3C299"/>
+    <!-- Traditional Gold Necklace -->
+    <path d="M36 48C38 52 42 52 44 48" stroke="#F59E0B" stroke-width="2" fill="none"/>
+    
+    <!-- Face -->
+    <ellipse cx="40" cy="32" rx="14" ry="16" fill="#F3C299"/>
+    <!-- Bindi -->
+    <circle cx="40" cy="27" r="1.5" fill="#DC2626"/>
+    <!-- Eyes -->
+    <ellipse cx="35" cy="31" rx="2" ry="1.5" fill="#1F2937"/>
+    <ellipse cx="45" cy="31" rx="2" ry="1.5" fill="#1F2937"/>
+    <!-- Gentle Smile -->
+    <path d="M37 38C38.5 40 41.5 40 43 38" stroke="#991B1B" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Earrings (Jhumkas) -->
+    <circle cx="25" cy="35" r="2.5" fill="#F59E0B"/>
+    <circle cx="55" cy="35" r="2.5" fill="#F59E0B"/>
+    
+    <!-- Indian Hair / Bun with Gajara/flowers -->
+    <path d="M25 32C25 18 32 14 40 14C48 14 55 18 55 32C55 24 50 20 40 20C30 20 25 24 25 32Z" fill="#111827"/>
+    <!-- Hair Flowers (Gajra) -->
+    <circle cx="28" cy="18" r="2.5" fill="#FFFFFF"/>
+    <circle cx="33" cy="15" r="2.5" fill="#FFFFFF"/>
+    <circle cx="40" cy="13" r="2.5" fill="#FFFFFF"/>
+    <circle cx="47" cy="15" r="2.5" fill="#FFFFFF"/>
+    <circle cx="52" cy="18" r="2.5" fill="#FFFFFF"/>
+    
+    <!-- Namaste / Greeting Hands -->
+    <path d="M36 60L40 52L44 60L40 68Z" fill="#F3C299"/>
+    <!-- Red Bangles -->
+    <line x1="33" y1="65" x2="38" y2="67" stroke="#DC2626" stroke-width="2"/>
+    <line x1="42" y1="67" x2="47" y2="65" stroke="#DC2626" stroke-width="2"/>
+  </g>
+</svg>

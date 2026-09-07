@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F8FAFC"/>
+  <!-- Contract Sheet -->
+  <rect x="42" y="22" width="46" height="56" rx="4" fill="#FFFFFF" stroke="#475569" stroke-width="2"/>
+  <line x1="48" y1="30" x2="72" y2="30" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="48" y1="36" x2="80" y2="36" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="48" y1="42" x2="78" y2="42" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="48" y1="48" x2="74" y2="48" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- House Key -->
+  <circle cx="38" cy="54" r="14" fill="#0284C7" stroke="#FFFFFF" stroke-width="2"/>
+  <!-- House icon inside circle -->
+  <path d="M32 56L38 50L44 56V62H32V56Z" fill="#FFFFFF"/>
+  <!-- Key overlay -->
+  <circle cx="68" cy="64" r="5" fill="#EAB308" stroke="#FFFFFF" stroke-width="1.5"/>
+  <path d="M72 66L82 76M78 72L81 69" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

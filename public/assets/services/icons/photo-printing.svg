@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FAF5FF"/>
+  <!-- Photo Frame / Glossy Photograph -->
+  <rect x="32" y="24" width="56" height="52" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="36" y="28" width="48" height="40" rx="2" fill="#EDE9FE"/>
+  <!-- Mountain landscape in photo -->
+  <circle cx="48" cy="38" r="5" fill="#F59E0B"/>
+  <path d="M38 64L50 48L62 64H38Z" fill="#8B5CF6"/>
+  <path d="M54 64L64 52L78 64H54Z" fill="#A78BFA"/>
+  <!-- Gloss shine -->
+  <path d="M68 28L48 68" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+</svg>

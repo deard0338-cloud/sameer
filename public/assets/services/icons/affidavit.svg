@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FFFBEB"/>
+  <!-- Stamp Paper Document -->
+  <rect x="36" y="20" width="48" height="60" rx="4" fill="#FFFFFF" stroke="#B45309" stroke-width="2"/>
+  <!-- Green / Gold Judicial Stamp Header -->
+  <rect x="40" y="24" width="40" height="14" rx="2" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <circle cx="60" cy="31" r="4" fill="#D97706"/>
+  <!-- Text lines -->
+  <line x1="42" y1="44" x2="78" y2="44" stroke="#78350F" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="42" y1="50" x2="74" y2="50" stroke="#B45309" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="42" y1="56" x2="76" y2="56" stroke="#B45309" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Notary Red Seal Stamp -->
+  <circle cx="70" cy="66" r="9" fill="#DC2626" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M66 66L69 69L74 63" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0F9FF"/>
+  <!-- Printer Base -->
+  <rect x="30" y="44" width="60" height="30" rx="4" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+  <rect x="42" y="24" width="36" height="24" rx="2" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+  <rect x="38" y="60" width="44" height="22" rx="2" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+  <!-- CMYK Spectrum bars -->
+  <rect x="42" y="66" width="8" height="10" rx="1" fill="#06B6D4"/>
+  <rect x="52" y="66" width="8" height="10" rx="1" fill="#EC4899"/>
+  <rect x="62" y="66" width="8" height="10" rx="1" fill="#EAB308"/>
+  <rect x="72" y="66" width="8" height="10" rx="1" fill="#0F172A"/>
+</svg>

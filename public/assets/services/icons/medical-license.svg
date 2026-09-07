@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#F0FDFA"/>
+  <rect x="36" y="22" width="48" height="58" rx="4" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+  <!-- Caduceus / Medical Cross -->
+  <circle cx="60" cy="40" r="12" fill="#CCFBF1"/>
+  <rect x="58" y="32" width="4" height="16" rx="1" fill="#0D9488"/>
+  <rect x="52" y="38" width="16" height="4" rx="1" fill="#0D9488"/>
+  <line x1="44" y1="58" x2="76" y2="58" stroke="#115E59" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="44" y1="64" x2="68" y2="64" stroke="#99F6E4" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Official Seal -->
+  <circle cx="72" cy="68" r="7" fill="#0F766E" stroke="#FFFFFF" stroke-width="1.5"/>
+  <path d="M70 68L71.5 69.5L74.5 66.5" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

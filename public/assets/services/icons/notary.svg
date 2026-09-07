@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FEF2F2"/>
+  <!-- Document -->
+  <rect x="38" y="22" width="44" height="58" rx="4" fill="#FFFFFF" stroke="#991B1B" stroke-width="2"/>
+  <!-- Scales of Justice -->
+  <path d="M60 28V46M50 32H70M46 40C46 37 54 37 54 40H46ZM66 40C66 37 74 37 74 40H66Z" stroke="#B91C1C" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Golden Seal Stamp with Ribbon -->
+  <circle cx="60" cy="60" r="11" fill="#DC2626" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M56 60L59 63L65 57" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 70L57 76L60 73L63 76L65 70" fill="#B91C1C"/>
+</svg>

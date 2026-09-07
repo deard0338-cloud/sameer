@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <rect width="120" height="100" rx="12" fill="#FFFBEB"/>
+  <!-- Hardhat Helmet -->
+  <path d="M40 50C40 38 48 30 60 30C72 30 80 38 80 50H40Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="34" y="50" width="52" height="6" rx="2" fill="#D97706"/>
+  <rect x="56" y="28" width="8" height="22" rx="2" fill="#B45309"/>
+  <!-- Ruler / Tools crossed -->
+  <rect x="36" y="62" width="48" height="16" rx="3" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="42" y1="67" x2="78" y2="67" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="42" y1="73" x2="66" y2="73" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
