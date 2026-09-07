@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+*.zip
+website-project-complete.zip
 
 # Editor directories and files
 .vscode/*
