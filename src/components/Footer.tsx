@@ -167,9 +167,15 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Disclaimer & Copyright */}
         <div className="pt-8 border-t border-blue-200/60 flex flex-col sm:flex-row items-center justify-between text-xs text-gov-textSecondary gap-4">
-          <p>
-            © {new Date().getFullYear()} <span className="font-semibold text-gov-textPrimary">Sameer Xerox</span>. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
+            <p>
+              © {new Date().getFullYear()} <span className="font-semibold text-gov-textPrimary">Sameer Xerox</span>. All rights reserved.
+            </p>
+            <span className="hidden sm:inline text-gray-300">•</span>
+            <p className="font-medium text-gov-textPrimary">
+              Designed &amp; Developed by <span className="text-gov-primary font-semibold">Sayyad Arshad</span>
+            </p>
+          </div>
 
           <p className="text-[11px] text-gray-500 text-center sm:text-right max-w-xl">
             Disclaimer: Sameer Xerox is an independent Digital Services &amp; CSC Facilitation Center. We provide consultation and application assistance. Not an official government portal.
