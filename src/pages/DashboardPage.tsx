@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FileText,
@@ -16,6 +16,7 @@ import {
 import { servicesData } from '../data/services';
 import {
   getAllRequests,
+  getAllRequestsSync,
   updateRequestStatus
 } from '../services/serviceRequestService';
 import type {
@@ -27,9 +28,19 @@ export const DashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'applications' | 'operatorDesk' | 'services' | 'documents' | 'notifications' | 'profile'>('applications');
   
   // Real requests state from serviceRequestService
-  const [requests, setRequests] = useState<ServiceRequestRecord[]>(() => getAllRequests());
+  const [requests, setRequests] = useState<ServiceRequestRecord[]>(() => getAllRequestsSync());
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('All');
+
+  useEffect(() => {
+    let isMounted = true;
+    getAllRequests().then(data => {
+      if (isMounted) setRequests(data);
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [activeTab]);
 
   const citizenProfile = {
     name: "Sameer Citizen",
@@ -74,9 +85,10 @@ export const DashboardPage: React.FC = () => {
     }
   };
 
-  const handleStatusChange = (id: string, newStatus: RequestStatus) => {
-    updateRequestStatus(id, newStatus);
-    setRequests(getAllRequests());
+  const handleStatusChange = async (id: string, newStatus: RequestStatus) => {
+    await updateRequestStatus(id, newStatus);
+    const refreshed = await getAllRequests();
+    setRequests(refreshed);
   };
 
   // Filtered requests for Operator Desk

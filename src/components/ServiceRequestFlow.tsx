@@ -75,6 +75,7 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
   const [submittedRecord, setSubmittedRecord] = useState<ServiceRequestRecord | null>(null);
   const [copied, setCopied] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [emailNotice, setEmailNotice] = useState<{ sent: boolean; message: string } | null>(null);
 
   // Hidden file input refs
   const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
@@ -213,8 +214,9 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
         }
       });
 
-      const record = await submitServiceRequest({
+      const result = await submitServiceRequest({
         serviceId: config.serviceId,
+        serviceSlug: config.slug,
         serviceName: config.serviceName,
         category: config.category,
         customerName: customerData.fullName,
@@ -225,7 +227,20 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
         files: filesPayload
       });
 
-      setSubmittedRecord(record);
+      setSubmittedRecord(result.record);
+
+      if (result.emailResult.success) {
+        setEmailNotice({
+          sent: true,
+          message: 'Notification email dispatched to Sameer Xerox center desk.'
+        });
+      } else {
+        setEmailNotice({
+          sent: false,
+          message: 'Your request was submitted successfully. Notification email could not be sent.'
+        });
+      }
+
       setStep('success');
     } catch {
       setSubmitError('Something went wrong while submitting your request. Please try again.');
@@ -269,13 +284,30 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
         </h3>
 
         <p className="text-xs sm:text-sm text-gov-textSecondary max-w-lg mx-auto mt-2 leading-relaxed">
-          Your request for <strong className="text-gov-textPrimary">{submittedRecord.serviceName}</strong> has been received by Sameer Xerox center desk.
+          We have received your request. Our team will review the submitted information and documents.
         </p>
 
+        {/* Backend & Email Notification Status Banner */}
+        {emailNotice && (
+          <div className="max-w-md mx-auto my-3">
+            {emailNotice.sent ? (
+              <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-center gap-1.5 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Shop Alert Dispatched via EmailJS</span>
+              </div>
+            ) : (
+              <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center justify-center gap-1.5 font-medium text-left">
+                <AlertCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <span>Your request was submitted successfully. Notification email could not be sent.</span>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Unique Request ID Card */}
-        <div className="max-w-md mx-auto my-6 p-5 rounded-2xl bg-slate-50 border border-gov-border shadow-xs text-left">
+        <div className="max-w-md mx-auto my-5 p-5 rounded-2xl bg-slate-50 border border-gov-border shadow-xs text-left">
           <div className="flex items-center justify-between text-xs text-gov-textSecondary uppercase tracking-wider font-semibold mb-1">
-            <span>Your Unique Tracking Token</span>
+            <span>Official Tracking Token</span>
             <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded text-[11px]">
               Status: {submittedRecord.status}
             </span>
@@ -306,15 +338,19 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
 
           <div className="mt-3.5 space-y-1.5 text-xs text-gov-textSecondary pt-3 border-t border-gray-100">
             <div className="flex justify-between">
+              <span>Service:</span>
+              <strong className="text-gov-textPrimary">{submittedRecord.serviceName}</strong>
+            </div>
+            <div className="flex justify-between">
               <span>Applicant:</span>
               <strong className="text-gov-textPrimary">{submittedRecord.customerName}</strong>
             </div>
             <div className="flex justify-between">
-              <span>Contact:</span>
+              <span>Mobile:</span>
               <strong className="text-gov-textPrimary">+91 {submittedRecord.mobile}</strong>
             </div>
             <div className="flex justify-between">
-              <span>Documents Attached:</span>
+              <span>Attached Documents:</span>
               <strong className="text-gov-textPrimary">{submittedRecord.documents.length} File(s)</strong>
             </div>
           </div>
@@ -331,25 +367,34 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="max-w-md mx-auto flex flex-col sm:flex-row items-center gap-3">
+        {/* Action Buttons: [Copy Request ID], [Track Request], [Back to Services], [WhatsApp] */}
+        <div className="max-w-md mx-auto flex flex-col gap-2.5">
+          <div className="flex flex-col sm:flex-row items-center gap-2.5">
+            <Link
+              to={`/track-application?ref=${submittedRecord.id}`}
+              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gov-primary hover:bg-gov-dark text-white text-xs sm:text-sm font-bold shadow-sm transition-all"
+            >
+              <span>Track Request</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              to="/services"
+              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-gray-300 hover:bg-gray-100 text-gray-700 text-xs sm:text-sm font-bold transition-all"
+            >
+              <span>Back to Services</span>
+            </Link>
+          </div>
+
           <a
             href={`https://wa.me/918625820706?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-bold shadow-sm transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold shadow-xs transition-all"
           >
             <MessageSquare className="w-4 h-4" />
-            <span>Send ID on WhatsApp</span>
+            <span>Send Request Details on WhatsApp</span>
           </a>
-
-          <Link
-            to={`/track-application?ref=${submittedRecord.id}`}
-            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gov-primary hover:bg-gov-dark text-white text-xs sm:text-sm font-bold shadow-sm transition-all"
-          >
-            <span>Track Live Status</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
 
         <div className="mt-4">

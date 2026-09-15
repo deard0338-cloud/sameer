@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { PhoneCall } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getRequestById } from '../services/serviceRequestService';
@@ -10,6 +10,46 @@ interface TrackStep {
   desc: string;
 }
 
+interface ApplicationResult {
+  ref: string;
+  serviceName: string;
+  applicantName: string;
+  submissionDate: string;
+  currentStage: number;
+  steps: TrackStep[];
+}
+
+const sampleApplications: Record<string, ApplicationResult> = {
+  "SX-2026-8812": {
+    ref: "SX-2026-8812",
+    serviceName: "PAN Card Application (PVC + e-PAN)",
+    applicantName: "Rahul Sharma",
+    submissionDate: "03 Sept 2026",
+    currentStage: 3,
+    steps: [
+      { title: "Application Submitted", status: "completed", date: "03 Sept 2026, 11:20 AM", desc: "Form 49A uploaded with Aadhaar authentication." },
+      { title: "Document Verification", status: "completed", date: "04 Sept 2026, 02:15 PM", desc: "Identity and Address proof verified by scrutiny operator." },
+      { title: "Department Processing", status: "in-progress", date: "05 Sept 2026", desc: "Application being processed at Income Tax / NSDL central portal." },
+      { title: "Approved & e-PAN Issued", status: "pending", desc: "e-PAN generated and dispatched to registered email." },
+      { title: "Completed & Dispatched", status: "pending", desc: "Physical PVC card printed and speed posted to residential address." }
+    ]
+  },
+  "SX-2026-1044": {
+    ref: "SX-2026-1044",
+    serviceName: "Shop Act (Gumasta) License",
+    applicantName: "Anil Patil",
+    submissionDate: "01 Sept 2026",
+    currentStage: 5,
+    steps: [
+      { title: "Application Submitted", status: "completed", date: "01 Sept 2026, 10:00 AM", desc: "Shop details and owner Aadhaar entered on portal." },
+      { title: "Document Verification", status: "completed", date: "01 Sept 2026, 11:30 AM", desc: "Premises rent agreement and signboard photo verified." },
+      { title: "Department Processing", status: "completed", date: "01 Sept 2026, 01:15 PM", desc: "Labor department fee received and verified." },
+      { title: "Approved & Issued", status: "completed", date: "01 Sept 2026, 03:00 PM", desc: "Registration certificate generated with QR code." },
+      { title: "Completed", status: "completed", date: "01 Sept 2026, 04:30 PM", desc: "Laminated certificate collected by applicant from Sameer Xerox." }
+    ]
+  }
+};
+
 export const TrackApplicationPage: React.FC = () => {
   const { t } = useLanguage();
   const [refNumber, setRefNumber] = useState(() => {
@@ -19,54 +59,16 @@ export const TrackApplicationPage: React.FC = () => {
     return '';
   });
   const [hasSearched, setHasSearched] = useState(false);
-  const [searchResult, setSearchResult] = useState<{
-    ref: string;
-    serviceName: string;
-    applicantName: string;
-    submissionDate: string;
-    currentStage: number;
-    steps: TrackStep[];
-  } | null>(null);
+  const [searchResult, setSearchResult] = useState<ApplicationResult | null>(null);
 
-  const sampleApplications: Record<string, typeof searchResult> = {
-    "SX-2026-8812": {
-      ref: "SX-2026-8812",
-      serviceName: "PAN Card Application (PVC + e-PAN)",
-      applicantName: "Rahul Sharma",
-      submissionDate: "03 Sept 2026",
-      currentStage: 3,
-      steps: [
-        { title: "Application Submitted", status: "completed", date: "03 Sept 2026, 11:20 AM", desc: "Form 49A uploaded with Aadhaar authentication." },
-        { title: "Document Verification", status: "completed", date: "04 Sept 2026, 02:15 PM", desc: "Identity and Address proof verified by scrutiny operator." },
-        { title: "Department Processing", status: "in-progress", date: "05 Sept 2026", desc: "Application being processed at Income Tax / NSDL central portal." },
-        { title: "Approved & e-PAN Issued", status: "pending", desc: "e-PAN generated and dispatched to registered email." },
-        { title: "Completed & Dispatched", status: "pending", desc: "Physical PVC card printed and speed posted to residential address." }
-      ]
-    },
-    "SX-2026-1044": {
-      ref: "SX-2026-1044",
-      serviceName: "Shop Act (Gumasta) License",
-      applicantName: "Anil Patil",
-      submissionDate: "01 Sept 2026",
-      currentStage: 5,
-      steps: [
-        { title: "Application Submitted", status: "completed", date: "01 Sept 2026, 10:00 AM", desc: "Shop details and owner Aadhaar entered on portal." },
-        { title: "Document Verification", status: "completed", date: "01 Sept 2026, 11:30 AM", desc: "Premises rent agreement and signboard photo verified." },
-        { title: "Department Processing", status: "completed", date: "01 Sept 2026, 01:15 PM", desc: "Labor department fee received and verified." },
-        { title: "Approved & Issued", status: "completed", date: "01 Sept 2026, 03:00 PM", desc: "Registration certificate generated with QR code." },
-        { title: "Completed", status: "completed", date: "01 Sept 2026, 04:30 PM", desc: "Laminated certificate collected by applicant from Sameer Xerox." }
-      ]
-    }
-  };
-
-  const executeTrack = (queryToken: string) => {
+  const executeTrack = useCallback(async (queryToken: string) => {
     const clean = queryToken.trim().toUpperCase();
     if (!clean) return;
 
     setHasSearched(true);
 
     // 1. Check real stored request record
-    const realReq = getRequestById(clean);
+    const realReq = await getRequestById(clean);
     if (realReq) {
       const dateFormatted = new Date(realReq.createdAt).toLocaleDateString('en-IN', {
         day: '2-digit',
@@ -155,7 +157,7 @@ export const TrackApplicationPage: React.FC = () => {
         ]
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -163,7 +165,7 @@ export const TrackApplicationPage: React.FC = () => {
     if (refParam) {
       executeTrack(refParam);
     }
-  }, []);
+  }, [executeTrack]);
 
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault();

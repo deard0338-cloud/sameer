@@ -15,6 +15,12 @@ dist-ssr
 website-project-complete.zip
 push-to-github.bat
 
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
