@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PhoneCall } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { getRequestById } from '../services/serviceRequestService';
 
 interface TrackStep {
   title: string;
@@ -11,7 +12,12 @@ interface TrackStep {
 
 export const TrackApplicationPage: React.FC = () => {
   const { t } = useLanguage();
-  const [refNumber, setRefNumber] = useState('');
+  const [refNumber, setRefNumber] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search).get('ref') || '';
+    }
+    return '';
+  });
   const [hasSearched, setHasSearched] = useState(false);
   const [searchResult, setSearchResult] = useState<{
     ref: string;
@@ -53,31 +59,115 @@ export const TrackApplicationPage: React.FC = () => {
     }
   };
 
-  const handleTrack = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!refNumber.trim()) return;
+  const executeTrack = (queryToken: string) => {
+    const clean = queryToken.trim().toUpperCase();
+    if (!clean) return;
 
     setHasSearched(true);
-    const found = sampleApplications[refNumber.trim().toUpperCase()];
+
+    // 1. Check real stored request record
+    const realReq = getRequestById(clean);
+    if (realReq) {
+      const dateFormatted = new Date(realReq.createdAt).toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      });
+
+      let currentStage = 2;
+      let s2Status: TrackStep['status'] = 'in-progress';
+      let s3Status: TrackStep['status'] = 'pending';
+      let s4Status: TrackStep['status'] = 'pending';
+      let s5Status: TrackStep['status'] = 'pending';
+
+      if (realReq.status === 'Pending') {
+        currentStage = 1;
+        s2Status = 'in-progress';
+      } else if (realReq.status === 'Under Review' || realReq.status === 'Processing') {
+        currentStage = 3;
+        s2Status = 'completed';
+        s3Status = 'in-progress';
+      } else if (realReq.status === 'Completed') {
+        currentStage = 5;
+        s2Status = 'completed';
+        s3Status = 'completed';
+        s4Status = 'completed';
+        s5Status = 'completed';
+      }
+
+      setSearchResult({
+        ref: realReq.id,
+        serviceName: realReq.serviceName,
+        applicantName: realReq.customerName,
+        submissionDate: dateFormatted,
+        currentStage,
+        steps: [
+          {
+            title: 'Application Submitted Online',
+            status: 'completed',
+            date: dateFormatted,
+            desc: `Submission recorded with ${realReq.documents.length} document(s) securely attached.`
+          },
+          {
+            title: 'Sameer Xerox Scrutiny',
+            status: s2Status,
+            date: realReq.status !== 'Pending' ? 'Verified by Center Desk' : 'Under Operator Scrutiny',
+            desc: 'Verification of uploaded proofs against department specifications.'
+          },
+          {
+            title: 'Department Portal Filing & Processing',
+            status: s3Status,
+            desc: 'Statutory submission and government application fee reconciliation.'
+          },
+          {
+            title: 'Sanction & Acknowledgment Generation',
+            status: s4Status,
+            desc: 'Official certificate/card issuance from competent authorities.'
+          },
+          {
+            title: 'Completed & Delivered',
+            status: s5Status,
+            desc: 'Ready for digital download or physical collection at Sameer Xerox Ashti.'
+          }
+        ]
+      });
+      return;
+    }
+
+    // 2. Check sample fallback
+    const found = sampleApplications[clean];
     if (found) {
       setSearchResult(found);
     } else {
       // Generate standard active timeline for any entered reference number
       setSearchResult({
-        ref: refNumber.trim().toUpperCase(),
-        serviceName: "Digital Citizen Service Facilitation",
-        applicantName: "Registered Citizen",
-        submissionDate: "Recent Submission",
+        ref: clean,
+        serviceName: 'Digital Citizen Service Facilitation',
+        applicantName: 'Registered Citizen',
+        submissionDate: 'Recent Submission',
         currentStage: 2,
         steps: [
-          { title: "Application Submitted", status: "completed", date: "Recorded at Sameer Xerox", desc: "Application proposal collated and sent for validation." },
-          { title: "Document Verification", status: "in-progress", date: "In Progress", desc: "Operator inspecting uploaded proofs and declarations." },
-          { title: "Department Processing", status: "pending", desc: "Statutory scrutiny by authorized departmental desk." },
-          { title: "Approved / Rejected", status: "pending", desc: "Final sanction or acknowledgment number generation." },
-          { title: "Completed & Ready", status: "pending", desc: "Physical collection or digital certificate download." }
+          { title: 'Application Submitted', status: 'completed', date: 'Recorded at Sameer Xerox', desc: 'Application proposal collated and sent for validation.' },
+          { title: 'Document Verification', status: 'in-progress', date: 'In Progress', desc: 'Operator inspecting uploaded proofs and declarations.' },
+          { title: 'Department Processing', status: 'pending', desc: 'Statutory scrutiny by authorized departmental desk.' },
+          { title: 'Approved / Rejected', status: 'pending', desc: 'Final sanction or acknowledgment number generation.' },
+          { title: 'Completed & Ready', status: 'pending', desc: 'Physical collection or digital certificate download.' }
         ]
       });
     }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const refParam = params.get('ref');
+    if (refParam) {
+      executeTrack(refParam);
+    }
+  }, []);
+
+  const handleTrack = (e: React.FormEvent) => {
+    e.preventDefault();
+    executeTrack(refNumber);
   };
 
   return (

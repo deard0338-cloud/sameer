@@ -15,6 +15,14 @@ export interface Translations {
   central: string;
   state: string;
   total: string;
+  happyCustomers: string;
+  happyCustomersSub: string;
+  servicesAvailable: string;
+  servicesAvailableSub: string;
+  docsProcessed: string;
+  docsProcessedSub: string;
+  yearsExperience: string;
+  yearsExperienceSub: string;
   whatsNew: string;
   whatsNewSub: string;
   popularServices: string;
@@ -71,6 +79,14 @@ export const translations: Record<Language, Translations> = {
     central: "Central",
     state: "State",
     total: "Total",
+    happyCustomers: "Happy Customers",
+    happyCustomersSub: "Citizens & local businesses served",
+    servicesAvailable: "Services Available",
+    servicesAvailableSub: "Government, CSC & digital services",
+    docsProcessed: "Documents & Applications",
+    docsProcessedSub: "Certificates & online forms processed",
+    yearsExperience: "Years of Service",
+    yearsExperienceSub: "Serving Ashti & surrounding region",
     whatsNew: "What's New ?",
     whatsNewSub: "Citizens may explore the newly added digital services on the portal.",
     popularServices: "Popular Service",
@@ -125,6 +141,14 @@ export const translations: Record<Language, Translations> = {
     central: "केंद्रीय",
     state: "राज्य",
     total: "कुल",
+    happyCustomers: "संतुष्ट नागरिक",
+    happyCustomersSub: "नागरिक एवं स्थानीय व्यवसाय लाभान्वित",
+    servicesAvailable: "उपलब्ध सेवाएं",
+    servicesAvailableSub: "सरकारी, सीएससी एवं डिजिटल सेवाएं",
+    docsProcessed: "दस्तावेज एवं आवेदन",
+    docsProcessedSub: "प्रमाण पत्र एवं ऑनलाइन फॉर्म प्रसंस्कृत",
+    yearsExperience: "सेवा के वर्ष",
+    yearsExperienceSub: "आष्टी एवं आसपास के क्षेत्र में सेवारत",
     whatsNew: "नया क्या है ?",
     whatsNewSub: "नागरिक पोर्टल पर नई जोड़ी गई डिजिटल सेवाओं का अन्वेषण कर सकते हैं।",
     popularServices: "लोकप्रिय सेवाएं",
@@ -179,6 +203,14 @@ export const translations: Record<Language, Translations> = {
     central: "केंद्रीय",
     state: "राज्य",
     total: "एकूण",
+    happyCustomers: "समाधानी नागरिक",
+    happyCustomersSub: "नागरिक व स्थानिक व्यवसाय लाभान्वित",
+    servicesAvailable: "उपलब्ध सेवा",
+    servicesAvailableSub: "शासकीय, सीएससी व डिजिटल सेवा",
+    docsProcessed: "कागदपत्रे आणि अर्ज",
+    docsProcessedSub: "दाखले व ऑनलाइन अर्ज प्रक्रिया",
+    yearsExperience: "सेवेची वर्षे",
+    yearsExperienceSub: "आष्टी आणि परिसराची विश्वासू सेवा",
     whatsNew: "नवीन काय आहे ?",
     whatsNewSub: "नागरिक पोर्टलवरील नव्याने जोडलेल्या डिजिटल सेवा पाहू शकतात.",
     popularServices: "लोकप्रिय सेवा",

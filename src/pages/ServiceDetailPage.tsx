@@ -12,8 +12,10 @@ import {
   AlertCircle,
   Building,
   ArrowLeft,
-  Sparkles
+  Sparkles,
+  UploadCloud
 } from 'lucide-react';
+import { ServiceRequestFlow } from '../components/ServiceRequestFlow';
 import { useLanguage } from '../context/LanguageContext';
 
 export const ServiceDetailPage: React.FC = () => {
@@ -108,11 +110,19 @@ export const ServiceDetailPage: React.FC = () => {
             {/* Direct Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
               <a
+                href="#apply"
+                className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all"
+              >
+                <UploadCloud className="w-4 h-4" />
+                <span>Apply / Submit Docs</span>
+              </a>
+
+              <a
                 href="tel:+918625820706"
-                className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gov-primary hover:bg-gov-dark text-white font-bold text-sm shadow-md transition-all"
+                className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gov-primary hover:bg-gov-dark text-white font-bold text-sm shadow-md transition-all"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Call Now (+91 86258 20706)</span>
+                <span>Call Now</span>
               </a>
 
               <a
@@ -180,6 +190,11 @@ export const ServiceDetailPage: React.FC = () => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Interactive Online Application & Document Upload Workflow */}
+            <div id="apply" className="scroll-mt-24">
+              <ServiceRequestFlow service={service} />
             </div>
 
             {/* Application Process Steps */}

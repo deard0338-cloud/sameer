@@ -53,9 +53,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, showPriorityB
           </p>
         </div>
 
-        {/* View Details CTA Button */}
+        {/* Apply & Submit Documents CTA */}
         <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between text-gov-primary text-xs font-bold">
-          <span className="group-hover:underline">View Details</span>
+          <span className="group-hover:underline">Apply / Submit Documents</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-gov-primary" />
         </div>
       </div>

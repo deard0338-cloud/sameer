@@ -1,150 +1,180 @@
-import React from 'react';
-import { Building2, Layers, UserCheck, CreditCard } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { Users, Layers, FileText, Calendar } from 'lucide-react';
+import { motion, useInView, useReducedMotion, animate } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
-export interface StatsData {
-  departments: { central: number; state: number };
-  services: { central: number; state: number };
-  registrations: { total: string; countNumber?: number };
-  transactions: { total: string; countNumber?: number };
+/**
+ * =========================================================================
+ * SAMEER XEROX — BUSINESS STATISTICS CONFIGURATION
+ * =========================================================================
+ * Modify the values below anytime to adjust the shop's real statistics.
+ * Numbers format automatically with standard Indian commas (e.g., 10,000, 1,00,000).
+ * Suffix '+' is preserved and animated alongside the number.
+ */
+export interface StatItemConfig {
+  id: 'customers' | 'services' | 'documents' | 'experience';
+  labelKey: 'happyCustomers' | 'servicesAvailable' | 'docsProcessed' | 'yearsExperience';
+  subLabelKey: 'happyCustomersSub' | 'servicesAvailableSub' | 'docsProcessedSub' | 'yearsExperienceSub';
+  defaultLabel: string;
+  defaultSub: string;
+  value: number; // <-- EDIT HERE: Verified shop statistics
+  suffix: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
-export const defaultStatsData: StatsData = {
-  departments: {
-    central: 80,
-    state: 162
+export const businessStats: StatItemConfig[] = [
+  {
+    id: 'customers',
+    labelKey: 'happyCustomers',
+    subLabelKey: 'happyCustomersSub',
+    defaultLabel: 'Happy Customers',
+    defaultSub: 'Citizens & local businesses served',
+    value: 10000, // Replace with actual verified customer count
+    suffix: '+',
+    icon: Users
   },
-  services: {
-    central: 880,
-    state: 1705
+  {
+    id: 'services',
+    labelKey: 'servicesAvailable',
+    subLabelKey: 'servicesAvailableSub',
+    defaultLabel: 'Services Available',
+    defaultSub: 'Government, CSC & digital services',
+    value: 54, // Aligned with the 54 active digital services catalog
+    suffix: '+',
+    icon: Layers
   },
-  registrations: {
-    total: "10,54,200+"
+  {
+    id: 'documents',
+    labelKey: 'docsProcessed',
+    subLabelKey: 'docsProcessedSub',
+    defaultLabel: 'Documents & Applications',
+    defaultSub: 'Certificates & online forms handled',
+    value: 25000, // Replace with actual verified applications processed
+    suffix: '+',
+    icon: FileText
   },
-  transactions: {
-    total: "2,84,65,120+"
+  {
+    id: 'experience',
+    labelKey: 'yearsExperience',
+    subLabelKey: 'yearsExperienceSub',
+    defaultLabel: 'Years of Service',
+    defaultSub: 'Serving Ashti & surrounding region',
+    value: 10, // Replace with actual verified years in operation
+    suffix: '+',
+    icon: Calendar
   }
+];
+
+/**
+ * Formats numbers into the Indian numbering format (e.g. 1,000, 10,000, 1,00,000).
+ */
+export const formatIndianNumber = (num: number): string => {
+  return num.toLocaleString('en-IN');
 };
 
-interface StatisticsGridProps {
-  stats?: StatsData;
+/**
+ * Single Stat Card with smooth count-up animation upon viewport entry.
+ */
+interface StatCardProps {
+  item: StatItemConfig;
+  index: number;
 }
 
-export const StatisticsGrid: React.FC<StatisticsGridProps> = ({ stats = defaultStatsData }) => {
+const StatCard: React.FC<StatCardProps> = ({ item, index }) => {
   const { t } = useLanguage();
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-40px 0px' });
+  const prefersReducedMotion = useReducedMotion();
+  const [displayValue, setDisplayValue] = useState(prefersReducedMotion ? item.value : 0);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    if (isInView) {
+      const controls = animate(0, item.value, {
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1], // Gentle easeOut
+        onUpdate: (latest) => {
+          setDisplayValue(Math.floor(latest));
+        }
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, item.value, prefersReducedMotion]);
+
+  const IconComponent = item.icon;
+  const label = t[item.labelKey] || item.defaultLabel;
+  const subLabel = t[item.subLabelKey] || item.defaultSub;
 
   return (
-    <section className="w-full bg-white border-b border-gov-borderCard shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gov-borderCard">
-          {/* Top-Left: Departments / Entities */}
-          <div className="py-6 md:py-8 px-4 sm:px-8 flex flex-col justify-between">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-11 h-11 rounded-lg bg-gov-light flex items-center justify-center text-gov-primary">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gov-primary">
-                {t.departmentsEntities}
-              </h3>
-            </div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-gov-borderCard shadow-gov-card hover:shadow-md hover:border-blue-200 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+    >
+      {/* Top accent glow on hover */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gov-primary via-blue-400 to-gov-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            <div className="grid grid-cols-2 gap-6 pl-2">
-              <div>
-                <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                  {t.central}
-                </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                  {stats.departments.central}
-                </div>
-              </div>
-              <div>
-                <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                  {t.state}
-                </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                  {stats.departments.state}
-                </div>
-              </div>
-            </div>
+      <div>
+        {/* Header: Icon & Category Indicator */}
+        <div className="flex items-center justify-between mb-5">
+          <div className="w-12 h-12 rounded-xl bg-gov-light text-gov-primary flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:bg-gov-primary group-hover:text-white transition-all duration-300">
+            <IconComponent className="w-6 h-6" />
           </div>
+          <span className="text-[11px] font-bold text-gov-primary/80 bg-gov-veryLight px-2.5 py-1 rounded-full border border-blue-50">
+            Sameer Xerox
+          </span>
+        </div>
 
-          {/* Top-Right: Services */}
-          <div className="py-6 md:py-8 px-4 sm:px-8 flex flex-col justify-between">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-11 h-11 rounded-lg bg-gov-light flex items-center justify-center text-gov-primary">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gov-primary">
-                {t.services}
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6 pl-2">
-              <div>
-                <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                  {t.central}
-                </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                  {stats.services.central.toLocaleString()}
-                </div>
-              </div>
-              <div>
-                <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                  {t.state}
-                </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                  {stats.services.state.toLocaleString()}
-                </div>
-              </div>
-            </div>
+        {/* Counter Number */}
+        <div className="mb-2">
+          <div className="text-3xl sm:text-4xl font-extrabold text-gov-textPrimary tracking-tight tabular-nums flex items-baseline gap-0.5">
+            <span>{formatIndianNumber(displayValue)}</span>
+            <span className="text-gov-primary font-bold">{item.suffix}</span>
           </div>
         </div>
 
-        {/* Horizontal Divider */}
-        <div className="w-full border-t border-gov-borderCard my-2 hidden md:block" />
+        {/* Primary Stat Label */}
+        <h3 className="text-base sm:text-lg font-bold text-gov-textPrimary leading-snug">
+          {label}
+        </h3>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gov-borderCard">
-          {/* Bottom-Left: Registrations */}
-          <div className="py-6 md:py-8 px-4 sm:px-8 flex flex-col justify-between">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-lg bg-gov-light flex items-center justify-center text-gov-primary">
-                <UserCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gov-primary">
-                {t.registrations}
-              </h3>
-            </div>
+      {/* Subtitle / Description */}
+      <p className="text-xs text-gov-textSecondary mt-2 pt-3 border-t border-gray-100 leading-relaxed">
+        {subLabel}
+      </p>
+    </motion.div>
+  );
+};
 
-            <div className="pl-2">
-              <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                {t.total}
-              </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                {stats.registrations.total}
-              </div>
-            </div>
+export const StatisticsGrid: React.FC = () => {
+  return (
+    <section
+      aria-label="Sameer Xerox Business Highlights"
+      className="w-full bg-slate-50/70 border-b border-gov-borderCard py-10 sm:py-14"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Section Heading */}
+        <div className="mb-8 text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gov-light text-gov-primary text-xs font-bold uppercase tracking-wider mb-2">
+            Center Track Record &amp; Trust
           </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
+            Trusted Digital &amp; Citizen Facilitation
+          </h2>
+          <p className="text-xs sm:text-sm text-gov-textSecondary mt-1 max-w-2xl">
+            Providing reliable online applications, government documentation, xerox, and financial services to our community.
+          </p>
+        </div>
 
-          {/* Bottom-Right: Transactions */}
-          <div className="py-6 md:py-8 px-4 sm:px-8 flex flex-col justify-between">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-lg bg-gov-light flex items-center justify-center text-gov-primary">
-                <CreditCard className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gov-primary">
-                {t.transactions}
-              </h3>
-            </div>
-
-            <div className="pl-2">
-              <div className="text-xs sm:text-sm font-medium text-gov-textSecondary mb-1">
-                {t.total}
-              </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-gov-textPrimary tracking-tight">
-                {stats.transactions.total}
-              </div>
-            </div>
-          </div>
+        {/* 4-Column Responsive Grid: 4 cols on desktop (lg), 2 cols on tablet (sm/md), 1-2 on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {businessStats.map((item, index) => (
+            <StatCard key={item.id} item={item} index={index} />
+          ))}
         </div>
       </div>
     </section>
