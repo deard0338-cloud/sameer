@@ -45,14 +45,21 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Brand Bar in Footer */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-10 mb-10 border-b border-blue-200/60 gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-xl font-extrabold text-gov-dark">Sameer Xerox</span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-gov-primary text-white">CSC</span>
+          <div className="flex items-center gap-3.5">
+            <img
+              src="/assets/sameer-logo.jpg"
+              alt="Sameer Xerox"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-contain border border-amber-300/40 shadow-xs shrink-0"
+            />
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xl font-extrabold text-gov-dark">Sameer Xerox</span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-gov-primary text-white">CSC</span>
+              </div>
+              <p className="text-xs text-gov-textSecondary font-medium">
+                Digital Services &amp; CSC Center • Facilitating Citizen Documentation &amp; Online Services
+              </p>
             </div>
-            <p className="text-xs text-gov-textSecondary font-medium">
-              Digital Services &amp; CSC Center • Facilitating Citizen Documentation &amp; Online Services
-            </p>
           </div>
 
           <div className="flex items-center gap-3 flex-wrap">

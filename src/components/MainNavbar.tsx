@@ -24,14 +24,34 @@ export const MainNavbar: React.FC<MainNavbarProps> = ({ onOpenSearch }) => {
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gov-border shadow-gov-header transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
-        {/* Brand Identity / Logo */}
-        <Link to="/" className="flex items-center shrink-0 focus:outline-none focus:ring-2 focus:ring-gov-primary rounded-lg py-1">
-          <div className="h-9 sm:h-11 md:h-12 flex items-center">
-            <img
-              src="/assets/sameer-logo.svg"
-              alt="Sameer Xerox - Digital Services & CSC Center"
-              className="h-7 sm:h-10 md:h-12 w-auto max-w-[160px] sm:max-w-none object-contain"
-            />
+        {/* Brand Identity / Official Logo */}
+        <Link
+          to="/"
+          className="flex items-center gap-2.5 sm:gap-3 shrink-0 focus:outline-none focus:ring-2 focus:ring-gov-primary focus:ring-offset-2 rounded-xl py-1 group"
+          aria-label="Sameer Xerox Home"
+        >
+          {/* Official Brand Logo Emblem */}
+          <img
+            src="/assets/sameer-logo.jpg"
+            alt="Sameer Xerox"
+            className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-contain shrink-0 shadow-xs border border-amber-300/40 transition-transform duration-200 group-hover:scale-105"
+            loading="eager"
+          />
+
+          {/* Clean Typography Lockup */}
+          <div className="flex flex-col justify-center select-none">
+            <div className="flex items-center gap-1.5 leading-none">
+              <span className="text-[17px] sm:text-[20px] md:text-[21px] font-extrabold text-gov-primary tracking-tight group-hover:text-gov-dark transition-colors">
+                SAMEER
+              </span>
+              <span className="text-[17px] sm:text-[20px] md:text-[21px] font-extrabold text-gov-textPrimary tracking-tight">
+                XEROX
+              </span>
+            </div>
+            <span className="text-[9px] sm:text-[10.5px] font-bold text-amber-700 tracking-wider uppercase mt-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block shrink-0"></span>
+              CSC Center • Digital Services
+            </span>
           </div>
         </Link>
 
@@ -91,9 +111,16 @@ export const MainNavbar: React.FC<MainNavbarProps> = ({ onOpenSearch }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-gov-border bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg animate-in fade-in duration-200">
           <div className="p-3 bg-gov-light/50 rounded-lg mb-3 flex items-center justify-between">
-            <div>
-              <div className="text-xs font-bold text-gov-primary">SAMEER XEROX CSC CENTER</div>
-              <div className="text-[11px] text-gov-textSecondary">Call: +91 86258 20706</div>
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/assets/sameer-logo.jpg"
+                alt="Sameer Xerox"
+                className="w-10 h-10 rounded-full object-contain border border-amber-300/50 shadow-xs"
+              />
+              <div>
+                <div className="text-xs font-bold text-gov-primary">SAMEER XEROX CSC CENTER</div>
+                <div className="text-[11px] text-gov-textSecondary">Call: +91 86258 20706</div>
+              </div>
             </div>
             <a
               href="tel:+918625820706"
