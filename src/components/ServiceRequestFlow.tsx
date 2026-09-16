@@ -232,12 +232,12 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
       if (result.emailResult.success) {
         setEmailNotice({
           sent: true,
-          message: 'Notification email dispatched to Sameer Xerox center desk.'
+          message: 'Notification email dispatched to Sameer Xerox Gmail desk.'
         });
       } else {
         setEmailNotice({
           sent: false,
-          message: 'Your request was submitted successfully. Notification email could not be sent.'
+          message: `Request saved successfully.${result.emailResult.error ? ` (Email alert: ${result.emailResult.error})` : ' Email notification could not be dispatched.'}`
         });
       }
 
@@ -298,7 +298,7 @@ export const ServiceRequestFlow: React.FC<ServiceRequestFlowProps> = ({ service 
             ) : (
               <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center justify-center gap-1.5 font-medium text-left">
                 <AlertCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span>Your request was submitted successfully. Notification email could not be sent.</span>
+                <span>{emailNotice.message}</span>
               </div>
             )}
           </div>
